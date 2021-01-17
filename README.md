@@ -1,5 +1,5 @@
 # Go Practice
-This repository contains my practice work for Java.
+This repository contains my practice work for Go.
 
 IDE: GoLand
 
