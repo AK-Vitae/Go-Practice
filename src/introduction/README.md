@@ -227,3 +227,96 @@
 * All assignments operations in Go are copy operations
 * Slices and maps contain internal pointers, so copies point to same underlying data
 
+## Functions
+
+### Basic Syntax
+
+```go
+func foo() {
+	...
+}
+```
+
+### Parameters
+
+* Comma delimited list of variables and types
+
+  * ```go
+    func foo(bar string, baz int)
+    ```
+
+* Parameters of same type list type once
+
+  * ```go
+    func foo(bar, baz int)
+    ```
+
+* When pointers are passed in, the functions can change the value in the caller
+
+  * This is always true for data of slices and maps
+
+* Use variadic parameters to send list of same types in
+
+  * Must be last parameter
+
+  * Received as a slice
+
+  * ```go
+    func foo(bar string, baz ...int)
+    ```
+
+### Return Values
+
+* Single return values: just list type
+* Multiple return value: list types surrounded by parentheses
+  * the (result type, error) paradigm is a very common idiom
+* Can use named return values
+* Can return addresses of local variables
+
+### Anonymous Functions
+
+* Functions don't have names if they are:
+
+  * Immediately invoked
+
+    * ```go
+      func() {
+          ...
+      }()
+      ```
+
+  * Assigned to a variable or passed as an argument to a function 
+
+    * ```go
+      a := func() {
+          ...
+      }
+      a()
+      ```
+
+### Functions as types
+
+* Can assign functions to variables or use as arguments and return values in functions
+
+* Type signature is like function signature, with no parameter names
+
+  * ```go
+    var f func(string, string, int) (int, error)
+    ```
+
+### Methods
+
+* Functions that executes in context of a type
+
+* Format
+
+  * ```go
+    func (g greeter) greet() {
+    	...
+    }
+    // g is a value receiver and gets copy of type
+    func (g *greeter) greet() {
+    	...
+    }
+    // g is a pointer receiver and gets pointer to type
+    ```
