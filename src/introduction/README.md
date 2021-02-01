@@ -15,9 +15,11 @@
 
 ### Variable Declaration:
 
-* var foo int
-* var foo int = 32
-* foo := 42
+* ```go
+  var foo int
+  var foo int = 32
+  foo := 42
+  ```
 
 * Can't redeclare variables, but can shadow them
 * All variables must be used
@@ -30,7 +32,10 @@
 
 ### Type conversions
 
-* destinationType(variable)
+* ```go
+  destinationType(variable)
+  ```
+
 * use strconv package for strings
 
 ## Primitive Types
@@ -104,13 +109,21 @@
 ## Arrays
 
 * Collection of items with same type
+
 * Fixed size
+
 * Declaration styles:
-  * a := [3]int{1, 2, 3}
-  * a := [...]int{1, 2, 3}
-  * var a [3]int
+  
+  * ```go
+    a := [3]int{1, 2, 3}
+    a := [...]int{1, 2, 3}
+    var a [3]int
+    ```
+  
 * Access via zero-based index
+
 * **len** function returns size of array
+
 * Copies refer to **different underlying data**
 
 ## Slices
@@ -118,10 +131,15 @@
 * Backed by array
 * Creation styles:
   * Slice existing array or slice
+  
   * Literal style
+  
   * Via **make** function:
-    * a := make([]int, 10) // create slice with capacity and length == 10
-    * a := make([]int, 10, 100) // create slice with length == 10 and capacity == 100
+    
+    * ```go
+      a := make([]int, 10) // create slice with capacity and length == 10
+      a := make([]int, 10, 100) // create slice with length == 10 and capacity == 100
+      ```
 * **len** function returns length of slice
 * **cap** function returns length of underlying array
 * **append** function to add elements to slice
@@ -210,13 +228,16 @@
 
 * Can use the addressof operator(&) if value types already exists
 
-  * ms := myStruct{foo: 42}
-
+  * ```go
+  ms := myStruct{foo: 42}
     p := &ms
+  ```
 
 * Use addressof operator before initializer
 
-  * &myStruct{foo: 42}
+  * ```go
+    &myStruct{foo: 42}
+    ```
 
 * Use the **new** keyword
 
