@@ -229,9 +229,9 @@
 * Can use the addressof operator(&) if value types already exists
 
   * ```go
-  ms := myStruct{foo: 42}
+    ms := myStruct{foo: 42}
     p := &ms
-  ```
+    ```
 
 * Use addressof operator before initializer
 
