@@ -341,3 +341,19 @@ func foo() {
     }
     // g is a pointer receiver and gets pointer to type
     ```
+
+## Interfaces
+
+* Interfaces define behavior not data
+* **Empty interface**: An empty interface may hold values of any type. (Every type implements at least zero methods.)
+  * Type switches are used to identify the data
+* Implementation:
+  * Method set of **value** is all methods with value receivers
+  * Method set of **pointer** is all methods, regardless of receiver type(more flexible implementation of interfaces)
+
+### Best Practices
+
+* Use many, small interfaces vs large monolithic ones
+* Don't export interfaces for types that will be consumed
+* Do export interfaces for types that will be used by package
+* Design functions and methods to receive interfaces whenever possible
