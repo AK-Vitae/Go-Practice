@@ -344,7 +344,7 @@ func foo() {
 
 ## Interfaces
 
-* Interfaces define behavior not data
+* Interfaces **define behavior not data**
 * **Empty interface**: An empty interface may hold values of any type. (Every type implements at least zero methods.)
   * Type switches are used to identify the data
 * Implementation:
@@ -357,3 +357,29 @@ func foo() {
 * Don't export interfaces for types that will be consumed
 * Do export interfaces for types that will be used by package
 * Design functions and methods to receive interfaces whenever possible
+
+## Goroutines
+
+### Creating goroutines
+
+* Use "go" keyword in front of function call
+* When using anonymous functions, pass data as local variables
+
+### Synchronization
+
+* Use sync.WaitGroup to wait for groups of goroutines to complete
+* Use sync.Mutex and sync.RWMutex to protect data access
+
+### Parallelism
+
+* By default, Go will use CPU threads equal to available cores
+* Change with runtime.GOMAXPROCS
+* More threads can increase performance, but too many can slow it down
+
+### Best Practices
+
+* Don't create goroutines in libraries
+* When creating a goroutine, know how it will end
+  * Avoids subtle memory leaks
+* Check for race conditions at compile time
+  * go run -race program.go
