@@ -383,3 +383,61 @@ func foo() {
   * Avoids subtle memory leaks
 * Check for race conditions at compile time
   * go run -race program.go
+
+## Channels
+
+### Basics
+
+* Create a channel with make command
+
+  * ```go
+    make(chan int)
+    ```
+
+* Send message into channel
+
+  * ```go
+    ch <- val
+    ```
+
+* Receive message from channel
+
+  * ```go
+    val := <-ch
+    ```
+
+* Can have multiple senders and receivers
+
+* Data Flow Restriction
+  * Channel can be cast into send-only or receive only versions
+
+    * ```go
+      chan <- int // Send-only
+      <-chan int // Receive-only
+      ```
+
+### Buffered Channels
+
+* Channels block sender side till receiver is available
+
+* Block receiver side till message is available
+
+* Can decouple sender and receiver with buffered channels
+
+  * ```go
+    make(chan int, 50)
+    ```
+
+* Use buffered channels when send and receiver have asymmetric loading
+
+### For...range loops with channels
+
+* Use to monitor channel and process messages as they arrive
+* Loop exits when channel is closed
+
+### Select Statements
+
+* Allows goroutine to monitor several channels at once
+  * Blocks if all channels block
+  * If multiple channels receive value simultaneously, behavior is undefined
+

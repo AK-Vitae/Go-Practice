@@ -56,6 +56,7 @@ func playGame(name string, rounds int) {
 
 	for i := 1; i <= rounds; i++ {
 		fmt.Printf("%s, now beginning round %d...\n", name, i)
+		time.Sleep(time.Millisecond * 500)
 		fmt.Printf("Scores:\n\t %s: %d, Computer: %d\n\n", name, playerScore, computerScore)
 		isDraw := false // If round results in a draw, repeat the round until a winner is decided
 
@@ -75,6 +76,7 @@ func playGame(name string, rounds int) {
 					index := rand.Intn(3) // Make computer's choice pseudorandom
 					computerMove := moveChoices[index]
 					fmt.Println("Computer picked:", computerMove)
+					time.Sleep(time.Millisecond * 750)
 
 					if playerMove == computerMove {
 						fmt.Print("It's a tie!\n\n")
